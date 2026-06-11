@@ -8,3 +8,19 @@ coverage/
 !.env.example
 
 /src/generated/prisma
+# Flutter
+flutter_laundry/build/
+flutter_laundry/.dart_tool/
+flutter_laundry/.idea/
+flutter_laundry.zip
+
+# Laravel
+backend_laravel/vendor/
+backend_laravel/node_modules/
+backend_laravel/.env
+
+# General
+.idea/
+*.zip
+*.db
+node_modules/
