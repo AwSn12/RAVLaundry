@@ -16,37 +16,43 @@ class DatabaseSeeder extends Seeder
     {
         // ─── USERS ──────────────────────────────────────────────────────────
         // Password: admin123
-        User::create([
-            'nama' => 'Administrator',
-            'email' => 'admin@laundryku.com',
-            'no_telp' => '08123456789',
-            'alamat' => 'Pusat LaundryKu',
-            'username' => 'admin',
-            'password' => 'admin123',
-            'role' => 'ADMIN',
-        ]);
+        User::firstOrCreate(
+            ['email' => 'admin@laundryku.com'],
+            [
+                'nama' => 'Administrator',
+                'no_telp' => '08123456789',
+                'alamat' => 'Pusat LaundryKu',
+                'username' => 'admin',
+                'password' => 'admin123',
+                'role' => 'ADMIN',
+            ]
+        );
 
         // Password: kurir123
-        User::create([
-            'nama' => 'Driver Laundry',
-            'email' => 'kurir@laundryku.com',
-            'no_telp' => '081222333444',
-            'alamat' => 'Jl. Pengiriman No. 1',
-            'username' => 'kurir',
-            'password' => 'kurir123',
-            'role' => 'KURIR',
-        ]);
+        User::firstOrCreate(
+            ['email' => 'kurir@laundryku.com'],
+            [
+                'nama' => 'Driver Laundry',
+                'no_telp' => '081222333444',
+                'alamat' => 'Jl. Pengiriman No. 1',
+                'username' => 'kurir',
+                'password' => 'kurir123',
+                'role' => 'KURIR',
+            ]
+        );
 
         // Password: user123
-        User::create([
-            'nama' => 'Budi Pelanggan',
-            'email' => 'budi@gmail.com',
-            'no_telp' => '08555666777',
-            'alamat' => 'Perumahan Elite Blok A',
-            'username' => 'budi',
-            'password' => 'user123',
-            'role' => 'USER',
-        ]);
+        User::firstOrCreate(
+            ['email' => 'budi@gmail.com'],
+            [
+                'nama' => 'Budi Pelanggan',
+                'no_telp' => '08555666777',
+                'alamat' => 'Perumahan Elite Blok A',
+                'username' => 'budi',
+                'password' => 'user123',
+                'role' => 'USER',
+            ]
+        );
 
         // ─── LAYANAN ────────────────────────────────────────────────────────
         $layananData = [
@@ -59,7 +65,10 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($layananData as $data) {
-            Layanan::create($data);
+            Layanan::firstOrCreate(
+                ['nama_layanan' => $data['nama_layanan']],
+                $data
+            );
         }
     }
 }
