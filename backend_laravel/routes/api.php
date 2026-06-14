@@ -19,6 +19,9 @@ use App\Http\Controllers\Api\AdminController;
 |
 */
 
+// Health check
+Route::get('/health', fn () => response()->json(['ok' => true]));
+
 // ═══════════════════════════════════════════════════════════════════════════
 // PUBLIC ROUTES (tanpa auth)
 // ═══════════════════════════════════════════════════════════════════════════
